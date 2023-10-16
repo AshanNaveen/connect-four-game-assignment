@@ -9,14 +9,13 @@ public class HumanPlayer extends Player{
     public void movePiece(int col) {
         if (board.isLegalMove(col)){
             board.updateMove(col,Piece.BLUE);
-            board.getBoardUi().update(col,true);
+            board.getBoardUI().update(col,true);
             Winner winner =board.findWinner();
             if (winner.getWinningPiece() == Piece.EMPTY){
                 board.existLegalMoves();
             }else{
-                board.getBoardUi().notifyWinner(winner);
+                board.getBoardUI().notifyWinner(winner);
             }
         }
-
     }
 }
